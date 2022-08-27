@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Calendar } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
-import { Navbar, CalendarEvent, CalendarModal, FabAddNew } from "../";
+import { Navbar, CalendarEvent, CalendarModal, FabAddNew, FabDelete } from "../";
 import { localizer, getMessagesES } from '../../helpers';
 import { useUiStore, useCalendarStore } from '../../hooks';
 
 
 const myEventsList = [
- 
+
 ]
 
 export const CalendarPage = () => {
@@ -26,8 +26,8 @@ export const CalendarPage = () => {
       opacity: 0.8,
       color: 'white'
     }
-    
-    return {style}
+
+    return { style }
   }
 
 
@@ -56,13 +56,15 @@ export const CalendarPage = () => {
         components={{
           event: CalendarEvent
         }}
-        onDoubleClickEvent= {openDateModal}
+        onDoubleClickEvent={openDateModal}
         onSelectEvent={onSelect}
         onView={onViewChanged}
       />
 
       <CalendarModal />
       <FabAddNew />
+      <FabDelete />
+
     </>
   );
 }
